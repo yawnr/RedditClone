@@ -1,0 +1,5 @@
+<h3> <%=@comment.content%> </h3>
+<%@comment.child_comments.each do |comment|%>
+<%= comment.content %>
+<br>
+<% end %>

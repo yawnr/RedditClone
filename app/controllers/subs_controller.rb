@@ -56,6 +56,7 @@ before_action :is_moderator?, only: [:edit, :destroy]
   def is_moderator?
     sub = Sub.find(params[:id])
     if !(current_user && (sub.moderator_id == current_user.id))
+      flash[:errors] = "You can't edit a sub that you don't moderate."
       redirect_to subs_url
     else
       true

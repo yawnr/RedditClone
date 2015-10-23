@@ -2,3 +2,8 @@
 <p> <%= @sub.description %></p>
 <p> moderator: <%= @sub.moderator.name %> </p>
 <p>Posts</p>
+<% @sub.posts.each do |post| %>
+    <br>
+    <a href="<%=post_url(post)%>"><%= post.title %></a>
+    <br>
+<% end %>
